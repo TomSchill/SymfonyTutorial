@@ -1,0 +1,17 @@
+parameters:
+#    opifer_blog.example.class: Opifer\BlogBundle\Example
+    opifer_blog.twig.extension.class: Opifer\BlogBundle\Twig\Extensions\OpiferBlogExtension
+    opifer.controller.comment.class: Opifer\BlogBundle\Controller\CommentControler
+
+services:
+#    opifer_blog.example:
+#        class: %opifer_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    opifer_blog.twig.extension:
+        class: "%opifer_blog.twig.extension.class%"
+        tags:
+            - { name: twig.extension }
+
+    opifer.controller.comment:
+        class: "%opifer.controller.comment.class%"
+

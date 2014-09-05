@@ -1,0 +1,21 @@
+opifer_blog_index:
+    path: /
+    defaults: { _controller: OpiferBlogBundle:Home:index }
+    requirements:
+            _method:  GET
+
+opifer_blog_contact:
+    path: /contact
+    defaults: { _controller: OpiferBlogBundle:Home:contact }
+
+opifer_blog_show:
+    path: /blog/{slug}
+    defaults: { _controller: OpiferBlogBundle:Home:show }
+
+opifer_blog_comment_create:
+    path: /blog/comment/{blog_id}
+    defaults: { _controller: OpiferBlogBundle:Comment:create }
+    requirements:
+        _method: POST
+        blog_id: \d+
+

@@ -1,0 +1,4 @@
+opifer_blog:
+    resource: "@OpiferBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+

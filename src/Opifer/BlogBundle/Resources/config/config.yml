@@ -1,0 +1,6 @@
+parameters:
+
+    #Blog contact email
+    opifer_blog.emails.contact_email: t.schillemans@opifer.nl
+
+    opifer_blog.comments.latest_comment_limit: 10

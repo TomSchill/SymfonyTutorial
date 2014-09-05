@@ -1,0 +1,44 @@
+{% extends "OpiferBlogBundle::base.html.twig" %}
+
+{% block sidebar %}
+    {{ render(controller('OpiferBlogBundle:Home:sidebar')) }}
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the our blog</h1>
+
+    {% for blog in blogs %}
+        <article class="blog">
+            <div class="date">
+                <time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, j F, Y H:i') }}</time>
+                <br>
+                <time datetime="{{ blog.updated|date('c') }}">
+                    <small>Last updated at: {{ blog.updated|date('l, j F, Y H:i') }}</small>
+                </time>
+            </div>
+            <header>
+                <h2><a href="{{ path('opifer_blog_show', { 'slug': blog.slug }) }}">{{ blog.title }}</a></h2>
+            </header>
+
+            <img src="{{ asset(['images/', blog.image]|join) }}"/>
+
+            <div class="snippet">
+                <p>{{ blog.blog(500) }}</p>
+
+                <p class="continue"><a href="{{ path('opifer_blog_show', { 'slug': blog.slug }) }}">Continue
+                        reading...</a></p>
+            </div>
+
+            <footer class="meta">
+                <p>Comments: <a href="{{ path('opifer_blog_show', { 'slug': blog.slug }) }}#comments">{{ blog.comments|length }}</a></p>
+
+                <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|created_ago }}</p>
+                <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
+            </footer>
+        </article>
+    {% else %}
+        <p>There are no blog entries for this blog</p>
+    {% endfor %}
+
+
+{% endblock %}

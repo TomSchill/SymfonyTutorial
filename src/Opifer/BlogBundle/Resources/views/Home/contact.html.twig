@@ -1,0 +1,21 @@
+{% extends "OpiferBlogBundle::base.html.twig" %}
+
+{% block title %} Contact {% endblock %}
+
+{% block body %}
+    <h1>Contact Us!</h1>
+
+    {# Contact form  #}
+    <form action="{{ path('opifer_blog_contact') }}" method="post" class='opifer'{{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.subject) }}
+        {{ form_row(form.body) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Send!" name="send"/>
+    </form>
+{% endblock %}

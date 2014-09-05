@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>{% block title %}Welcome!{% endblock %} :: Opifer Blog</title>
+
+        {% block stylesheets %}
+            {% stylesheets '@OpiferBlogBundle/Resources/public/css/*' filter='?yui_css' %}
+                <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+            {% endstylesheets %}
+
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    </head>
+    <body>
+
+    {% for flashMessage in app.session.flashbag.get('notice-ok') %}
+        <div class="opifer-notice notice-ok">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('notice-er') %}
+        <div class="opifer-notice notice-er">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <aside class="sidebar">
+        {% block sidebar %}{% endblock %}
+    </aside>
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}
+        {% javascripts '@OpiferBlogBundle/Resources/public/js/*'%}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+
+    </body>
+</html>
+
