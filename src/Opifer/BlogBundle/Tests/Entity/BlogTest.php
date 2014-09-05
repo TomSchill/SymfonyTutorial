@@ -1,6 +1,8 @@
 <?php namespace Opifer\BlogBundle\Tests\Entity;
 
 use Opifer\BlogBundle\Entity\Blog;
+use Opifer\BlogBundle\Entity\Comment;
+use Symfony\Component\Yaml\Tests\B;
 
 class BlogTest extends \PHPUnit_Framework_TestCase
 {
@@ -78,5 +80,35 @@ class BlogTest extends \PHPUnit_Framework_TestCase
 
         $blog->setBlog($string);
         $this->assertEquals('Dit is een', $blog->getBlog(10));
+    }
+
+    public function testSetTags()
+    {
+        $blog = new Blog();
+
+        $tags = 'php, html, phpunit';
+        $blog->setTags($tags);
+
+        $this->assertEquals($tags, $blog->getTags());
+    }
+
+    public function testSetComments()
+    {
+        $blog = new Blog();
+
+        $comment = 'Hallo dit is een comment voor een test';
+        $blog->setComments($comment);
+
+        $this->assertEquals($comment, $blog->getComments());
+    }
+
+    public function testSetImage()
+    {
+        $blog = new Blog();
+
+        $image = 'image.png';
+        $blog->setImage($image);
+
+        $this->assertEquals($image, $blog->getImage());
     }
 } 
