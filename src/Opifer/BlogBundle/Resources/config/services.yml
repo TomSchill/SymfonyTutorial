@@ -15,3 +15,5 @@ services:
     opifer.controller.comment:
         class: "%opifer.controller.comment.class%"
 
+    opifer_calculator:
+        class: "Opifer\BlogBundle\Calculate"

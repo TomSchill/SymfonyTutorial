@@ -15,8 +15,8 @@ class OpiferBlogExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $blog = new OpiferBlogExtension();
 
-        $this->assertEquals('0 seconds ago', $blog->createdAgo(new \DateTime()));
-        $this->assertEquals('34 seconds ago', $blog->createdAgo($this->getDateTime(-34)));
+        $this->assertEquals('Just now', $blog->createdAgo(new \DateTime()));
+        $this->assertEquals('Just now', $blog->createdAgo($this->getDateTime(-34)));
         $this->assertEquals('1 minute ago', $blog->createdAgo($this->getDateTime(-60)));
         $this->assertEquals('2 minutes ago', $blog->createdAgo($this->getDateTime(-120)));
         $this->assertEquals('1 hour ago', $blog->createdAgo($this->getDateTime(-3600)));

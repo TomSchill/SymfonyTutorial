@@ -19,7 +19,7 @@ class OpiferBlogExtension extends \Twig_Extension
         {
             // Calculate Seconds
             $time = $delta;
-            $duration = $time . " second" . (($time === 0 || $time > 1) ? "s" : "") . " ago";
+            $duration = "Just now";
         }
         else if($delta < 3600)
         {

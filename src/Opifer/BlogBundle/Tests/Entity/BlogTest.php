@@ -108,7 +108,10 @@ class BlogTest extends \PHPUnit_Framework_TestCase
 
         $image = 'image.png';
         $blog->setImage($image);
+        $this->assertEquals($image, $blog->getImage());
 
+        $image = 'secondImage.jpg';
+        $blog->setImage($image);
         $this->assertEquals($image, $blog->getImage());
     }
 } 

@@ -19,3 +19,9 @@ opifer_blog_comment_create:
         _method: POST
         blog_id: \d+
 
+opifer_blog_calculate:
+    pattern: /{path}
+    defaults: { _controller: OpiferBlogBundle:Calc:calculate }
+    requirements:
+        path: "^calculate/.+"
+
